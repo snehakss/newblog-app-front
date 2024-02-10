@@ -18,8 +18,7 @@ const Addpost = () => {
             (response)=>{
                 console.log(response.data)
                 if (response.data.status=="success") {
-                    console.log(response.data.userId)
-                    sessionStorage.setItem("userId",response.data.userData._id)
+                    alert("successfull")
                     //Navigate()
                 }
             }
