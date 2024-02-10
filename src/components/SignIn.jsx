@@ -21,6 +21,8 @@ const SignIn = () => {
             (response)=>{
                 console.log(response.data)
                 if (response.data.status=="success") {
+                    console.log(response.data.userId._id)
+                    sessionStorage.setItem("userId",response.data.userData._id)
                     navigate("/add")
                 } else {
                     alert("invalid")
