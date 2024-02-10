@@ -30,7 +30,9 @@ const Viewpost = () => {
         data.map(
             (value,index)=>{
                 return <tr>
+                    <td>{value.userId.name}</td>
                 <td>{value.post}</td>
+                <td>{value.postDate}</td>
               </tr>
             }
         )
