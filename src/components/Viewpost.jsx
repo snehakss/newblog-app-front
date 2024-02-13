@@ -11,6 +11,16 @@ const Viewpost = () => {
         )
     }
     useEffect(()=>{getData()},[])
+    const deletePost = (id)=>{
+      alert(id)
+      axios.post("link",input).then(
+        (response)=>{
+          if (response.data.status=="success") {
+            
+          }
+        }
+      )
+    }
   return (
     <div>
         <div className="container">
@@ -33,6 +43,7 @@ const Viewpost = () => {
                     <td>{value.userId.name}</td>
                 <td>{value.post}</td>
                 <td>{value.postDate}</td>
+                <button className="btn btn-danger">Delete</button>
               </tr>
             }
         )

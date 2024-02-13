@@ -1,6 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const NavBlog = () => {
+  let navigate=useNavigate()
+  useEffect(
+    ()=>{
+      let userId=sessionStorage.getItem("userId")
+      if (userId===null || userId==undefined) {
+        navigate("/")
+      }
+    }
+  )
+  const logOutAction = ()=>{
+    sessionStorage.clear()
+    navigate("/")
+  }
   return (
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -12,7 +26,7 @@ const NavBlog = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Logout</a>
+          <span class="nav-link active" aria-current="page" to="/" onClick={logOutAction}>Logout</span>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/add">Add Blog</a>
